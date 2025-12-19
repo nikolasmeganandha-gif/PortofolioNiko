@@ -1,0 +1,54 @@
+---
+import AboutHeroImage from '../image/profile.jpeg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About Me"
+	description="Cyber Security student — homelab, blue team monitoring, and web projects."
+	pubDate={new Date('August 08 2021')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		Halo, saya <strong>Galang Nusa Meganandha</strong>—mahasiswa Informatika dengan fokus
+		<strong>Cyber Security</strong>. Saya tertarik pada bagaimana sistem diserang dan bagaimana kita
+		mendeteksinya dengan cepat, rapi, dan bisa dipertanggungjawabkan lewat data (log), alert, dan
+		analisis.
+	</p>
+
+	<p>
+		Saat ini saya banyak belajar lewat <strong>cybersecurity homelab</strong> berbasis virtual machine.
+		Saya membangun lingkungan latihan yang memisahkan peran attacker–target agar eksperimen aman dan
+		reproducible. Fokus utama saya ada di area <strong>Blue Team</strong>: monitoring, detection,
+		dan incident visibility—mulai dari pengumpulan log, normalisasi data, sampai interpretasi alert.
+	</p>
+
+	<p>
+		Di sisi pengembangan, saya juga membangun beberapa project untuk kebutuhan akademik dan portofolio,
+		termasuk aplikasi web CRUD (misalnya watchlist film) dan website statik untuk dokumentasi.
+		Buat saya, kemampuan security dan development saling melengkapi: development melatih disiplin
+		arsitektur dan data, sedangkan security melatih threat modeling, hardening, dan penilaian risiko.
+	</p>
+
+	<h2>What I’m working on</h2>
+	<ul>
+		<li><strong>Homelab Security:</strong> honeypot + monitoring + IDS untuk observasi dan pembelajaran.</li>
+		<li><strong>Detection & Logging:</strong> menyusun alur log → alert → analisis yang mudah dibuktikan.</li>
+		<li><strong>Web Projects:</strong> membangun aplikasi sederhana namun rapi (struktur, database, dan role).</li>
+	</ul>
+
+	<h2>How I write</h2>
+	<p>
+		Blog ini saya pakai untuk menulis catatan lab, rangkuman konsep, dan dokumentasi project. Formatnya
+		sengaja dibuat singkat dan teknis: tujuan, langkah, hasil, dan pelajaran yang bisa diulang lagi di
+		masa depan.
+	</p>
+
+	<h2>Get in touch</h2>
+	<p>
+		Kamu bisa menemukan saya di <a href="https://github.com/nikolasmeganandha-gif" target="_blank" rel="noreferrer">GitHub</a>
+		untuk source code dan progress project, atau di
+		<a href="https://instagram.com/nik.oi_" target="_blank" rel="noreferrer">Instagram</a>
+		untuk update singkat.
+	</p>
+</Layout>

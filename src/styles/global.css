@@ -1,0 +1,327 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+	--accent: #22c55e;
+	--accent-dark: #16a34a;
+	--black: 243, 244, 246;
+	--gray: 0, 0, 0;
+	--gray-light: 39, 51, 73;
+	--gray-dark: 209, 213, 219;
+	--gray-gradient: rgba(var(--gray-light), 35%), rgb(10, 15, 25);
+	--box-shadow:
+		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
+		rgba(var(--gray), 33%);
+}
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+body {
+	font-family: "Atkinson", sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background-size: 100% 600px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: rgb(var(--gray-dark));
+	font-size: 20px;
+	line-height: 1.7;
+}
+main {
+	width: 720px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 3em 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+}
+h1 {
+	font-size: 3.052em;
+}
+h2 {
+	font-size: 2.441em;
+}
+h3 {
+	font-size: 1.953em;
+}
+h4 {
+	font-size: 1.563em;
+}
+h5 {
+	font-size: 1.25em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--accent);
+}
+a:hover {
+	color: var(--accent);
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0;
+	font-size: 1.333em;
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}
+
+/* =========================
+   DARK FIX (warna saja)
+   Tempel paling bawah file
+========================= */
+
+/* 1) Biar setelah 600px tidak balik putih */
+html {
+	background-color: rgb(10, 15, 25);
+}
+body {
+	/* ...yang lain biarin... */
+	background:
+		linear-gradient(rgba(10, 15, 25, 0.85), rgba(10, 15, 25, 0.85)),
+		url("../image/elgato.jpg") center / cover no-repeat fixed;
+}
+
+
+/* 2) Paksa semua section/container yang "putih" jadi transparan/gelap */
+main,
+section,
+article,
+footer {
+	background-color: transparent;
+	color: rgb(var(--gray-dark));
+}
+
+/* 3) Header/Nav template blog Astro biasanya ngunci background putih.
+      Override jadi gelap. */
+header,
+nav {
+	background-color: rgb(10, 15, 25) !important;
+	color: rgb(var(--black)) !important;
+	border-color: rgb(var(--gray-light)) !important;
+}
+
+/* Link di navbar/header biar kebaca */
+header a,
+nav a {
+	color: rgb(var(--black)) !important;
+}
+header a:hover,
+nav a:hover {
+	color: var(--accent) !important;
+}
+
+/* 4) Garis pemisah (kalau ada border putih) */
+header *,
+nav * {
+	border-color: rgb(var(--gray-light)) !important;
+}
+
+/* 5) (Opsional tapi aman) Biar area bawah tidak “putih menyala” di komponen tertentu */
+[class*="card"],
+[class*="container"],
+[class*="content"],
+[class*="wrapper"] {
+	background-color: transparent;
+}
+/* =========================
+   FIX NAV ACTIVE INDICATOR
+   (hilangkan garis/tanda di bawah menu)
+========================= */
+
+/* Template Astro Blog biasanya pakai border-bottom atau pseudo-element */
+header nav a[aria-current="page"] {
+	border-bottom: none !important;
+	text-decoration: none !important;
+}
+header nav a[aria-current="page"]::after,
+header nav a[aria-current="page"]::before {
+	content: none !important;
+	display: none !important;
+}
+
+/* jaga-jaga kalau class-nya beda */
+.nav-links a[aria-current="page"],
+.nav-links a.active,
+nav a.active {
+	border-bottom: none !important;
+	text-decoration: none !important;
+}
+.nav-links a[aria-current="page"]::after,
+.nav-links a.active::after,
+nav a.active::after {
+	content: none !important;
+	display: none !important;
+}
+
+/* =========================
+   FIX TEKS META/TANGGAL HITAM
+========================= */
+
+/* umum: tanggal pakai <time>, meta pakai <small> */
+time,
+small {
+	color: rgb(var(--gray-dark)) !important;
+}
+
+/* jaga-jaga kalau template pakai class meta/date tertentu */
+.date,
+.post-date,
+.post-meta,
+.meta,
+article time,
+main time,
+main small {
+	color: rgb(var(--gray-dark)) !important;
+}
+/* =========================
+   FOOTER: jangan hitam/putih aneh
+========================= */
+footer {
+	background-color: rgb(10, 15, 25) !important;
+	color: rgb(var(--gray-dark)) !important;
+}
+footer a {
+	color: rgb(var(--gray-dark)) !important;
+}
+footer a:hover {
+	color: var(--accent) !important;
+}
+
+/* =========================
+   NAV: hilangkan tanda/garis SELALU,
+   tapi link aktif jadi hijau
+========================= */
+
+/* 1) default warna nav link */
+header nav a,
+nav a {
+	color: rgb(var(--black)) !important;
+	text-decoration: none !important;
+	border-bottom: none !important;
+}
+
+/* 2) hapus indikator garis/pseudo-element SELALU */
+header nav a::before,
+header nav a::after,
+nav a::before,
+nav a::after,
+.nav-links a::before,
+.nav-links a::after {
+	content: none !important;
+	display: none !important;
+}
+
+/* 3) saat halaman aktif (yang benar) -> hijau */
+header nav a[aria-current="page"],
+nav a[aria-current="page"],
+.nav-links a[aria-current="page"] {
+	color: var(--accent) !important;
+	border-bottom: none !important;
+	text-decoration: none !important;
+}
+
+/* 4) saat diklik sesaat -> hijau juga */
+header nav a:active,
+nav a:active,
+.nav-links a:active {
+	color: var(--accent) !important;
+}
+
+.internal-links {
+	margin-left: auto;     /* dorong menu ke kanan */
+	display: flex;
+	gap: 1rem;
+}
+
+.social-links {
+	margin-left: 1rem;
+}

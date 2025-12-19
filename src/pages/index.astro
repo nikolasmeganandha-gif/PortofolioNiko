@@ -1,0 +1,48 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h3>Halo, perkenalkan Saya</h3>
+			<h2>Galang Nusa Meganandha</h2>
+			<p>
+				Saya adalah Mahasiswa Informatika Universitas Atma Jaya Yogyakarta dengan fokus <strong>Cyber Security</strong>.
+			</p>
+
+			<h3>Project Highlight</h3>
+			<ul>
+				<li>
+					<strong>Cybersecurity Homelab</strong> — Kali attacker VM, Ubuntu honeypot, Wazuh manager/agent, Suricata IDS.
+				</li>
+				<li>
+					<strong>Watchlist App</strong> — aplikasi film/watchlist berbasis PHP + MySQL (roles, rating, status watchlist).
+				</li>
+				<li>
+					<strong>WorthPay</strong> — konsep aplikasi edukasi/aduan upah (UI/UX, flow pengguna, konten edukatif).
+				</li>
+			</ul>
+
+			<h3>Tujuan Blog</h3>
+			<p>
+				Di blog ini saya menulis catatan pembelajaran, dokumentasi lab, ringkasan materi, dan progres project project saya.
+			</p>
+
+			<p>
+				Kamu bisa mulai dari halaman <a href="/blog">Blog</a> untuk membaca tulisan terbaru, atau buka <a href="/about">About</a>
+				untuk detail profil dan toolset yang saya gunakan.
+			</p>
+		</main>
+
+		<Footer />
+	</body>
+</html>
